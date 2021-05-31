@@ -147,7 +147,7 @@ public class Music_player extends javax.swing.JFrame {
 
             
         }
-    }//GEN-LAST:event_stop_buttonActionPerformed
+    }
 
     private void choose_song_buttonActionPerformed(java.awt.event.ActionEvent evt) {
         
@@ -282,7 +282,7 @@ public class Music_player extends javax.swing.JFrame {
         });
     }
     
-        public void playing_ringtone() throws IOException{
+        public synchronized void playing_ringtone() throws IOException{
 
         try {
             fileInputStream = new FileInputStream(new File(selection_ringtone));
