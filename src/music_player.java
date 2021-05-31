@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
-public class music_player extends javax.swing.JFrame {
+public class Music_player extends javax.swing.JFrame {
     
     String selection_ringtone, name_music;
     FileInputStream fileInputStream;
@@ -24,7 +24,7 @@ public class music_player extends javax.swing.JFrame {
     /**
      * Creates new form music_player
      */
-    public music_player() {
+    public Music_player() {
         initComponents();
         
         play_button.setVisible(false);
