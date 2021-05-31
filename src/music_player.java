@@ -194,7 +194,7 @@ public class Music_player extends javax.swing.JFrame {
         
     }//GEN-LAST:event_choose_song_buttonActionPerformed
 
-    private void play_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_play_buttonActionPerformed
+    private synchronized void play_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_play_buttonActionPerformed
             
         try {
             fileInputStream = new FileInputStream(new File(selection_ringtone));
