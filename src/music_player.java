@@ -21,9 +21,6 @@ public class Music_player extends javax.swing.JFrame {
     long all;
     long pouse;
     
-    /**
-     * Creates new form music_player
-     */
     public Music_player() {
         initComponents();
         
@@ -38,7 +35,6 @@ public class Music_player extends javax.swing.JFrame {
 
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -56,28 +52,28 @@ public class Music_player extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(26, 26, 26));
 
-        stop_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-pause-50.png"))); // NOI18N
+        stop_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-pause-50.png"))); 
         stop_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stop_buttonActionPerformed(evt);
             }
         });
 
-        choose_song_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-plus-24.png"))); // NOI18N
+        choose_song_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-plus-24.png")));
         choose_song_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 choose_song_buttonActionPerformed(evt);
             }
         });
 
-        play_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-play-32.png"))); // NOI18N
+        play_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-play-32.png"))); 
         play_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 play_buttonActionPerformed(evt);
             }
         });
 
-        reset_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-play-32.png"))); // NOI18N
+        reset_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-play-32.png"))); 
         reset_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reset_buttonActionPerformed(evt);
@@ -136,9 +132,9 @@ public class Music_player extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void stop_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stop_buttonActionPerformed
+    private void stop_buttonActionPerformed(java.awt.event.ActionEvent evt) {
         if (player != null){
 
             try {
@@ -153,7 +149,7 @@ public class Music_player extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_stop_buttonActionPerformed
 
-    private void choose_song_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choose_song_buttonActionPerformed
+    private void choose_song_buttonActionPerformed(java.awt.event.ActionEvent evt) {
         
         System.out.println(selection_ringtone);
 
@@ -192,9 +188,9 @@ public class Music_player extends javax.swing.JFrame {
         }
         
         
-    }//GEN-LAST:event_choose_song_buttonActionPerformed
+    }
 
-    private synchronized void play_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_play_buttonActionPerformed
+    private synchronized void play_buttonActionPerformed(java.awt.event.ActionEvent evt) {
             
         try {
             fileInputStream = new FileInputStream(new File(selection_ringtone));
@@ -226,13 +222,22 @@ public class Music_player extends javax.swing.JFrame {
         }
         
         
-    }//GEN-LAST:event_play_buttonActionPerformed
+    }
 
-    private void reset_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_buttonActionPerformed
-                    if (selection_ringtone == null){
+    private void reset_buttonActionPerformed(java.awt.event.ActionEvent evt) {
+        if (selection_ringtone == null){
+             try {
+                play_button.setVisible(true);
+                stop_button.setVisible(true);
+                player.close();
+                playing_ringtone();
+                reset_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("icons8-reset-24.png")));
+            } catch (IOException ex) {
+                Logger.getLogger(music_player.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
        
-            } else /*if(!selection_ringtone.equals(null))*/ {
+            } else {
                 name_music_label.setText(name_music);
                 play_button.setVisible(true);
                 stop_button.setVisible(true);
@@ -246,21 +251,10 @@ public class Music_player extends javax.swing.JFrame {
                         }
             }
                     
-        try {
-            play_button.setVisible(true);
-            stop_button.setVisible(true);
-            player.close();
-            playing_ringtone();
-            reset_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("icons8-reset-24.png")));
-        } catch (IOException ex) {
-            Logger.getLogger(music_player.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
         
-    }//GEN-LAST:event_reset_buttonActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         
         try {
@@ -279,9 +273,8 @@ public class Music_player extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(music_player.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+        
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new music_player().setVisible(true);
@@ -319,12 +312,10 @@ public class Music_player extends javax.swing.JFrame {
     }
         
     
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton choose_song_button;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel name_music_label;
     private javax.swing.JToggleButton play_button;
     private javax.swing.JToggleButton reset_button;
     private javax.swing.JToggleButton stop_button;
-    // End of variables declaration//GEN-END:variables
 }
